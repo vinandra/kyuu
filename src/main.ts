@@ -1,14 +1,46 @@
 import "./style.css";
-import typescriptLogo from "./typescript.svg";
-import viteLogo from "/vite.svg";
 
-import { setupCounter } from "./counter.ts";
+const jawaban: Array<string> = [
+  "B",
+  "A",
+  "C",
+  "A",
+  "B",
+  "A",
+  "B",
+  "B",
+  "C",
+  "A",
+];
+let score = 0;
 
-document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
-  <div class="flex items-center justify-center">
-    <h1 class="text-3xl font-bold text-center">Apakah kamu cukup mengenal diriku!</h1>
-    <p></p>
-  </div>
-`;
+const form = document.querySelector<HTMLElement>(
+  ".quiz-form"
+) as HTMLFormElement;
+const result = document.querySelector(".result") as HTMLDivElement;
 
-setupCounter(document.querySelector<HTMLButtonElement>("#counter")!);
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+
+  const userAnswers = [
+    form.q1.value,
+    form.q2.value,
+    form.q3.value,
+    form.q4.value,
+    form.q5.value,
+    form.q6.value,
+    form.q7.value,
+    form.q8.value,
+    form.q9.value,
+    form.q10.value,
+  ];
+
+  userAnswers.forEach((jawabanUser, index) => {
+    if (jawabanUser === jawaban[index]) {
+      score += 1;
+    }
+  });
+
+  result.innerHTML = `<p> selamat kamu benar ${score} 🚀 </p>`;
+});

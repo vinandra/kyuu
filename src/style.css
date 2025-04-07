@@ -7,7 +7,7 @@
 
   color-scheme: light dark;
   color: #ffffff;
-  background-color: #242424;
+  background-color: #282c35;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -16,7 +16,4 @@
 }
 
 body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
 }
